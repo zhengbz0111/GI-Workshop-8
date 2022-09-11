@@ -65,7 +65,7 @@ to this problem.
 
 #### 3. Phong illumination _and_ shading
 
-Notice that the "specular highlight" effect is a little odd at some points 
+Notice that the "specular highlight" effect looks a little strange at some points 
 of the cube's rotation. Navigate around the scene and try to "maximise" the amount of
 reflection you can see. From certain angles, e.g., reflection off the top of the
 cube, there are very noticeable artefacts. This is because illumination is being computed on
@@ -101,10 +101,10 @@ normal. This leads to a "flat" appearance for each triangle. For a cube, it make
 define them this way. However, let's suppose we wanted the cube to be "sphere-like" in terms of how
 it is lit. This is not physically realistic -- but it's possible!
 
-Your next task is to modify the cube such that _vertex normals_ are used, such that vertices at the same point
+Your next task is to modify the cube normals, such that vertices at the same point
 have the same ("averaged") normal, even if they belong to different faces of the cube. This
-is not a shader exercise, but rather, requires you to modify how the normals are defined in the mesh
-itself. Once complete, the cube will be lit as though it is "smooth" as seen in the below image.
+is not a shader exercise, but rather, requires you to modify the mesh
+itself in `GenerateCube.cs`. Once complete, the cube will be lit as though it is "smooth" as seen in the below image.
 
 <p align="middle">
   <img src="Gifs/Q4.gif">
@@ -147,17 +147,16 @@ the built-in Unity rendering pipeline uses, and doing some research online more 
 
 #### 7. Where to go from here... 
 
-Well done, you've survived the shader programming workshops! You should have a solid foundation in the key concepts
-behind vertex and pixel shaders, as well as the broader context (e.g. rendering pipeline). Still, despite a 
-lot of class time dedicated to shaders,
-we've still only touched the tip of the iceberg of what can be achieved with them. Here are some further extension/challenge
-exercises you may wish to attempt in your own time:
+Well done, you've survived the shader programming workshops! You should have a solid understanding of the key concepts
+behind vertex and pixel shaders, as well as the broader context (e.g. the "simplified" rendering pipeline). Still, despite a 
+lot of class time dedicated to shaders, you've only seen the tip of the iceberg of what can be achieved with them. 
+In order to further develop your understanding, here are some research/extension/challenge exercises 
+you may wish to attempt in your own time:
 
 - Try integrating the Phong illumination model with the wave vertex shader from last week so the waves are lit! Conversely,
   have a go at deforming the cube mesh today via a vertex shader, whilst keeping the Phong illumination model in place.
-- Add calculations for the `fAtt` variable in the Phong illumination shader. Realistic lights should fall off over
-  a distance!
-- Try implementing a very simple fog effect using a similar calculation to that of `fAtt`, but relative to the
+- Add calculations for the `fAtt` variable in the Phong illumination shader. 
+- Try implementing a very simple fog effect. This borrows concepts from the computation of `fAtt`, but is relative to the
   camera instead.
 - Research "normal mapping" and how it is used to add more lighting detail to the surface of objects.
 - Have a go at implementing a stylistic illumination model, such as Cartoon/Cel shading.
